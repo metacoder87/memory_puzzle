@@ -22,3 +22,12 @@ class Card
     def reveal
         @status.rotate! if @status[0] == "face_down"
     end
+
+    def print
+        if @status[0] == "face_up"
+            puts @face_val 
+        else puts " "
+        end
+    end
+
+end
