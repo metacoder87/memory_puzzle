@@ -15,7 +15,9 @@ class Card
         @status = ["face_up", "face_down"]
     end
 
-end
+    def hide
+        @status.rotate! if @status[0] == "face_up"
+    end
 
     def reveal
         @status.rotate! if @status[0] == "face_down"
