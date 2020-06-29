@@ -1,4 +1,6 @@
-
+            # meta_coder (Gary Miller) =)
+            # gmiller052611@gmail.com
+            # https://github.com/metacoder87/memory_puzzle
 
 
 class Card
@@ -58,3 +60,9 @@ puts card.face_val==(shard.face_val)
 
 puts "drac == card " # => true
 puts drac.face_val.==(card.face_val)
+
+
+
+            # meta_coder (Gary Miller) =)
+            # gmiller052611@gmail.com
+            # https://github.com/metacoder87/memory_puzzle
