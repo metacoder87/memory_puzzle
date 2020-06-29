@@ -1,3 +1,6 @@
+
+
+
 class Card
 
     def to_s
@@ -31,3 +34,27 @@ class Card
     end
 
 end
+
+card = Card.new("P")
+shard = Card.new("S")
+drac = card.dup
+
+puts "Prints card:"
+card.print
+
+puts "Prints shard:"
+shard.print
+
+puts "Hide card: "
+card.hide
+card.print
+
+puts "Reveal card: "
+card.reveal
+card.print
+
+puts "card == shard " # => false
+puts card.face_val==(shard.face_val)
+
+puts "drac == card " # => true
+puts drac.face_val.==(card.face_val)
