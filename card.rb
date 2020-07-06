@@ -48,6 +48,9 @@ puts card.face_val==(shard.face_val)
 puts "drac == card " # => true
 puts drac.face_val.==(card.face_val)
 
+puts card
+puts shard
+
 
 
             # meta_coder (Gary Miller) =)
