@@ -4,35 +4,24 @@
 
 
 class Card
-
-    def to_s
-        self.to_s
-    end
-
+    
     def ==(b)
         self.eql? b
     end
 
-    attr_reader :face_val
+    attr_accessor :face_val
 
     def initialize(face_val)
         @face_val = face_val
-        @status = ["face_up", "face_down"]
+        @face_down = " "
     end
 
     def hide
-        @status.rotate! if @status[0] == "face_up"
+        return @face_down
     end
 
     def reveal
-        @status.rotate! if @status[0] == "face_down"
-    end
-
-    def print
-        if @status[0] == "face_up"
-            puts @face_val 
-        else puts " "
-        end
+        return @face_val
     end
 
 end
@@ -42,18 +31,16 @@ shard = Card.new("S")
 drac = card.dup
 
 puts "Prints card:"
-card.print
+puts card.reveal
 
 puts "Prints shard:"
-shard.print
+puts shard.reveal
 
 puts "Hide card: "
-card.hide
-card.print
+puts card.hide
 
 puts "Reveal card: "
-card.reveal
-card.print
+puts card.reveal
 
 puts "card == shard " # => false
 puts card.face_val==(shard.face_val)
