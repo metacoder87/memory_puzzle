@@ -99,3 +99,9 @@ class Board
         end
         render
     end
+
+    def won?
+        if @grid == @display_grid
+            return "WON, You must have a mind like a steel trap. \n Game Over"
+        end
+    end
