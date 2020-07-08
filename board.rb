@@ -140,3 +140,10 @@ class Board
     def selector
         alphabet.shuffle.first(8)
     end
+
+    def cards 
+        selected = selector
+        selected.map! { |char| Card.new(char) }
+    end
+
+end
