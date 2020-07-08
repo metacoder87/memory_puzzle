@@ -43,3 +43,15 @@ class Board
         row, col = pos
         @grid[row][col] = val
     end
+
+    def positions(arr)
+        positions = []
+        arr.each_with_index do |row, idx| 
+            row.each_index do |i| 
+                if arr[idx][i] == " "
+                    positions << [idx, i] 
+                end
+            end
+        end
+        positions
+    end
