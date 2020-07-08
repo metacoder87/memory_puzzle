@@ -105,3 +105,12 @@ class Board
             return "WON, You must have a mind like a steel trap. \n Game Over"
         end
     end
+
+    def add_guess(pos)
+        if @guessed.count <= 1
+            @guessed << pos
+        else @guessed.clear
+            @guessed << pos
+        end
+        reveal
+    end
