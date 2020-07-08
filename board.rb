@@ -136,3 +136,7 @@ class Board
     def alphabet
         ("A".."Z").to_a
     end
+
+    def selector
+        alphabet.shuffle.first(8)
+    end
