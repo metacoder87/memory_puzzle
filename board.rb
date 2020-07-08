@@ -76,3 +76,11 @@ class Board
             @display_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].reveal
         end
     end
+
+    def render
+        @grid.each { |row| puts row.join("  ") }
+    end
+
+    def render_display
+        @display_grid.each { |row| puts row.join("  ") } 
+    end
