@@ -59,3 +59,8 @@ class Board
     def place_card(pos, card)
         @card_ref[pos[0]][pos[1]] = card
     end
+
+    def populate
+        i = 0
+        positions(base_grid).shuffle.each { |pos| place_card(pos, @cards[i % @cards.count]) && i += 1 }
+    end
