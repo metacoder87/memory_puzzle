@@ -70,3 +70,9 @@ class Board
         borders(g)
         g
     end
+
+    def populate_display
+        positions(@display_grid).each do |idx| 
+            @display_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].reveal
+        end
+    end
