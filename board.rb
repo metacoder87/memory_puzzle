@@ -84,3 +84,18 @@ class Board
     def render_display
         @display_grid.each { |row| puts row.join("  ") } 
     end
+
+    def match?
+        pos1 = @guessed[0]
+        pos2 = @guessed[1]
+        if @card_ref[pos1[0]][pos1[1]].reveal == @card_ref[pos2[0]][pos2[1]].reveal
+            puts "It's a match"
+            @guessed.each { |position| @matched << position }
+            @grid[pos1[0]][pos1[1]] = @card_ref[pos1[0]][pos1[1]].reveal
+            @grid[pos2[0]][pos2[1]] = @card_ref[pos2[0]][pos2[1]].reveal
+            @temp_grid[pos1[0]][pos1[1]] = @card_ref[pos1[0]][pos1[1]].reveal
+            @temp_grid[pos2[0]][pos2[1]] = @card_ref[pos2[0]][pos2[1]].reveal
+        else puts "Not a match"
+        end
+        render
+    end
