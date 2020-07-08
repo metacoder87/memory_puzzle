@@ -55,3 +55,7 @@ class Board
         end
         positions
     end
+
+    def place_card(pos, card)
+        @card_ref[pos[0]][pos[1]] = card
+    end
