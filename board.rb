@@ -20,3 +20,17 @@ class Board
         @guessed = []
         @matched = []
     end
+
+    def borders(arr)
+        top_border(arr)
+        side_border(arr)
+    end
+
+    def top_border(arr)
+       arr[0] = (1..4).to_a.unshift("M")
+    end
+
+    def side_border(arr)
+        (1..4).to_a.each { |num| arr[num][0] = num }
+    end
+
