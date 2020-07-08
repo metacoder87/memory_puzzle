@@ -130,3 +130,9 @@ class Board
             won?
         end
     end
+
+    private
+
+    def alphabet
+        ("A".."Z").to_a
+    end
