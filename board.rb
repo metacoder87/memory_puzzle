@@ -34,3 +34,12 @@ class Board
         (1..4).to_a.each { |num| arr[num][0] = num }
     end
 
+    def [](pos)
+        row, col = pos
+        @grid[row][col]
+    end
+
+    def []=(pos, val)
+        row, col = pos
+        @grid[row][col] = val
+    end
