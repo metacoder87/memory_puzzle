@@ -147,3 +147,17 @@ class Board
     end
 
 end
+
+board = Board.new
+board.populate
+board.populate_display
+board.add_guess([1,1])
+board.add_guess([2,2])
+board.add_guess([3,3])
+board.render
+board.render_display
+
+
+            # meta_coder (Gary Miller) =)
+            # gmiller052611@gmail.com
+            # https://github.com/metacoder87/memory_puzzle
