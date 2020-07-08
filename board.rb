@@ -114,3 +114,19 @@ class Board
         end
         reveal
     end
+
+    def reveal
+        positions(base_grid).each do |idx| 
+                if @guessed.include?([idx[0],idx[1]]) || @matched.include?([idx[0],idx[1]])
+                        @temp_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].reveal
+                else @temp_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].hide
+            end
+        end
+       @temp_grid.each { |row| puts row.join("  ") } 
+        if @guessed.count == 2
+            match?
+        end
+        if positions(base_grid).count == @matched.count
+            won?
+        end
+    end
