@@ -146,8 +146,7 @@ class Board
     end
 
     def cards 
-        selected = selector
-        selected.map! { |char| Card.new(char) }
+        selector.map! { |char| Card.new(char) }
     end
 
 end
