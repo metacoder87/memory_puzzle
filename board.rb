@@ -84,7 +84,7 @@ class Board
     def match?
         pos1 = @guessed[0]
         pos2 = @guessed[1]
-        if @card_ref[pos1[0]][pos1[1]].reveal == @card_ref[pos2[0]][pos2[1]].reveal
+        if @card_ref[pos1[0]][pos1[1]] == @card_ref[pos2[0]][pos2[1]]
             puts "It's a match"
             @guessed.each { |position| @matched << position }
             @grid[pos1[0]][pos1[1]] = @card_ref[pos1[0]][pos1[1]].reveal
@@ -93,7 +93,6 @@ class Board
             @temp_grid[pos2[0]][pos2[1]] = @card_ref[pos2[0]][pos2[1]].reveal
         else puts "Not a match"
         end
-        render
     end
 
     def won?
