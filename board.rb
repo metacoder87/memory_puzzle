@@ -74,13 +74,10 @@ class Board
     end
 
     def populate_display
-        positions(@display_grid).each do |idx| 
-            @display_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].reveal
-        end
+        positions(@display_grid).map! { |idx| @display_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].reveal }
     end
 
-    def render
-        @grid.each { |row| puts row.join("  ") }
+    def render(a_grid)
     end
 
     def render_display
