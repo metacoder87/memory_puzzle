@@ -28,3 +28,8 @@ attr_reader :board
             @board.add_guess(get_guess)
         end
     end
+
+end
+
+game = Game.new
+game.run
