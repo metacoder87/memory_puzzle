@@ -47,7 +47,7 @@ class Board
     def positions(arr)
         positions = []
         arr.each_with_index do |row, idx| 
-            row.each_index do |i| 
+            row.select.with_index do |card, i| 
                 if arr[idx][i] == " "
                     positions << [idx, i] 
                 end
