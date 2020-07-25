@@ -27,7 +27,7 @@ class Board
     end
 
     def top_border(arr)
-       arr[0] = (1..4).to_a.unshift("M")
+       arr[0] = (1..4).to_a.unshift("?")
     end
 
     def side_border(arr)
