@@ -22,8 +22,8 @@ class Board
     end
 
     def borders(arr)
-        top_border(arr)
-        side_border(arr)
+        top_border(arr) && side_border(arr)
+        arr
     end
 
     def top_border(arr)
