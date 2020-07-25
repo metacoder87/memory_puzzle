@@ -122,13 +122,17 @@ class Board
                 else @temp_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].hide
             end
         end
-       @temp_grid.each { |row| puts row.join("  ") } 
-        if @guessed.count == 2
-            match?
-        end
-        if positions(base_grid).count == @matched.count
-            won?
-        end
+        render(@temp_grid)
+        match? if @guessed.count == 2
+        won? if positions(base_grid).count == @matched.count
+    end
+
+    def build
+        populate
+        populate_display
+        render(@display_grid)
+        sleep(6)
+        system 'clear'
     end
 
     private
