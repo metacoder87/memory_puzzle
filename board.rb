@@ -81,10 +81,6 @@ class Board
         a_grid.each { |row| puts row.join("  ") } 
     end
 
-    def render_display
-        @display_grid.each { |row| puts row.join("  ") } 
-    end
-
     def match?
         pos1 = @guessed[0]
         pos2 = @guessed[1]
