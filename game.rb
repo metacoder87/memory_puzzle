@@ -13,3 +13,9 @@ attr_reader :board
         system 'clear'
         @board.build
     end
+
+    def get_guess
+        puts "Take a guess..."
+        move = gets.chomp.split(" ")
+        move.map! { |ele| ele.to_i }
+    end
