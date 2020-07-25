@@ -152,14 +152,13 @@ class Board
 
 end
 
-board = Board.new
-board.populate
-board.populate_display
-board.add_guess([1,1])
-board.add_guess([2,2])
-board.add_guess([3,3])
-board.render
-board.render_display
+# board = Board.new
+# board.build
+# board.add_guess([1,1])
+# board.add_guess([2,2])
+# board.add_guess([3,3])
+# board.render(board.grid)
+# board.render(board.display_grid)
 
 
             # meta_coder (Gary Miller) =)
