@@ -19,3 +19,12 @@ attr_reader :board
         move = gets.chomp.split(" ")
         move.map! { |ele| ele.to_i }
     end
+
+    def run
+        until @board.won? == true
+            system 'clear'
+            @board.render(@board.display_grid)
+            @board.render(@board.temp_grid)
+            @board.add_guess(get_guess)
+        end
+    end
