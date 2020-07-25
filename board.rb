@@ -70,9 +70,7 @@ class Board
     end
 
     def base_grid
-        g = Array.new(5) { Array.new(5).fill(" ") }
-        borders(g)
-        g
+        borders(penta_grid)
     end
 
     def populate_display
