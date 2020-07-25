@@ -78,6 +78,7 @@ class Board
     end
 
     def render(a_grid)
+        a_grid.each { |row| puts row.join("  ") } 
     end
 
     def render_display
