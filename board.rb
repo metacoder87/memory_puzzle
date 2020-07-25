@@ -36,7 +36,7 @@ class Board
 
     def [](pos)
         row, col = pos
-        @grid[row][col]
+        self[row][col]
     end
 
     def []=(pos, val)
