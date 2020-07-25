@@ -95,10 +95,15 @@ class Board
         end
     end
 
-    def won?
-        if @grid == @display_grid
-            return "WON, You must have a mind like a steel trap. \n Game Over"
+    def won? 
+        while @grid == @display_grid
+            system 'clear'
+            puts "WON, You must have a mind like a steel trap. Game Over." 
+            sleep(5)
+            system 'clear'
+            return true
         end
+        false
     end
 
     def add_guess(pos)
