@@ -41,7 +41,7 @@ class Board
 
     def []=(pos, val)
         row, col = pos
-        @grid[row][col] = val
+        self[row][col] = val
     end
 
     def positions(arr)
