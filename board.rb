@@ -9,7 +9,7 @@ class Board
 
 
 
-    attr_reader :grid, :cards, :card_ref, :guessed, :display_grid
+    attr_reader :temp_grid, :display_grid
 
     def initialize
         @display_grid = base_grid.dup
