@@ -65,6 +65,10 @@ class Board
         positions(base_grid).shuffle.each { |pos| place_card(pos, @cards[i % @cards.count]) && i += 1 }
     end
 
+    def penta_grid
+        Array.new(5) { Array.new(5).fill(" ") }
+    end
+
     def base_grid
         g = Array.new(5) { Array.new(5).fill(" ") }
         borders(g)
