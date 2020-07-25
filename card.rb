@@ -26,30 +26,30 @@ class Card
 
 end
 
-card = Card.new("P")
-shard = Card.new("S")
-drac = card.dup
+# card = Card.new("P")
+# shard = Card.new("S")
+# drac = card.dup
 
-puts "Prints card:"
-puts card.reveal
+# puts "Prints card:"
+# puts card.reveal
 
-puts "Prints shard:"
-puts shard.reveal
+# puts "Prints shard:"
+# puts shard.reveal
 
-puts "Hide card: "
-puts card.hide
+# puts "Hide card: "
+# puts card.hide
 
-puts "Reveal card: "
-puts card.reveal
+# puts "Reveal card: "
+# puts card.reveal
 
-puts "card == shard " # => false
-puts card.face_val==(shard.face_val)
+# puts "card == shard " # => false
+# puts card.face_val==(shard.face_val)
 
-puts "drac == card " # => true
-puts drac.face_val.==(card.face_val)
+# puts "drac == card " # => true
+# puts drac.face_val.==(card.face_val)
 
-puts card
-puts shard
+# puts card
+# puts shard
 
 
 
