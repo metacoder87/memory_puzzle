@@ -6,3 +6,10 @@
 require_relative "board"
 
 class Game
+
+attr_reader :board
+    def initialize
+        @board = Board.new
+        system 'clear'
+        @board.build
+    end
