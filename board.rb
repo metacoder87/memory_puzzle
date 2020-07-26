@@ -101,6 +101,12 @@ class Board
     def save_match
         @guessed.each { |position| @matched << position }
     end
+
+    def place(arr)
+        arr[@guessed[0][0]][@guessed[0][1]] = card_1
+        arr[@guessed[1][0]][@guessed[1][1]] = card_2
+    end
+
     def match?
         if card_1 == card_2
             system 'clear'
