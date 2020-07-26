@@ -10,7 +10,7 @@ class Board
 
 
     attr_reader :temp_grid, :display_grid
-
+    
     def initialize
         @display_grid = base_grid.dup
         @temp_grid = base_grid.dup
@@ -82,16 +82,12 @@ class Board
     end
 
     def match?
-        pos1 = @guessed[0]
-        pos2 = @guessed[1]
-        if @card_ref[pos1[0]][pos1[1]] == @card_ref[pos2[0]][pos2[1]]
+        if card_1 == card_2
+            system 'clear'
             puts "It's a match"
-            @guessed.each { |position| @matched << position }
-            @grid[pos1[0]][pos1[1]] = @card_ref[pos1[0]][pos1[1]].reveal
-            @grid[pos2[0]][pos2[1]] = @card_ref[pos2[0]][pos2[1]].reveal
-            @temp_grid[pos1[0]][pos1[1]] = @card_ref[pos1[0]][pos1[1]].reveal
-            @temp_grid[pos2[0]][pos2[1]] = @card_ref[pos2[0]][pos2[1]].reveal
-        else puts "Not a match"
+            sleep(3)
+            save_match && place(@grid) && place(@temp_grid)
+        else not_a_match
         end
     end
 
