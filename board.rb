@@ -94,7 +94,7 @@ class Board
         puts "#{card_1} does not match #{card_2}"
         sleep(3)
         system 'clear'
-        puts "Next player"
+        puts "Next guess"
         sleep(3)
     end
 
@@ -120,7 +120,7 @@ class Board
     def won? 
         while @grid == @display_grid
             system 'clear'
-            puts "WON, You must have a mind like a steel trap. Game Over." 
+            puts "You WON! You must have a mind like a steel trap. Game Over." 
             sleep(5)
             system 'clear'
             return true
