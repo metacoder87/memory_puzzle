@@ -4,20 +4,16 @@
 
 
 require_relative "board"
+require_relative "human_player"
 
 class Game
 
 attr_reader :board
-    def initialize
+    def initialize(player)
+        @player = HumanPlayer.new(player)
         @board = Board.new
         system 'clear'
         @board.build
-    end
-
-    def get_guess
-        puts "Take a guess..."
-        move = gets.chomp.split(" ")
-        move.map! { |ele| ele.to_i }
     end
 
     def run
@@ -25,11 +21,11 @@ attr_reader :board
             system 'clear'
             @board.render(@board.display_grid)
             @board.render(@board.temp_grid)
-            @board.add_guess(get_guess)
+            @board.add_guess(@player.get_guess)
         end
     end
 
 end
 
-game = Game.new
+game = Game.new("player_1")
 game.run
