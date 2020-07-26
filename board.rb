@@ -97,6 +97,10 @@ class Board
         puts "Next player"
         sleep(3)
     end
+
+    def save_match
+        @guessed.each { |position| @matched << position }
+    end
     def match?
         if card_1 == card_2
             system 'clear'
