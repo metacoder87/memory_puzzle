@@ -81,6 +81,13 @@ class Board
         a_grid.each { |row| puts row.join("  ") } 
     end
 
+    def card_1
+        @card_ref[@guessed[0][0]][@guessed[0][1]].reveal
+    end
+
+    def card_2
+        @card_ref[@guessed[1][0]][@guessed[1][1]].reveal
+    end
     def match?
         if card_1 == card_2
             system 'clear'
