@@ -88,6 +88,15 @@ class Board
     def card_2
         @card_ref[@guessed[1][0]][@guessed[1][1]].reveal
     end
+
+    def not_a_match
+        system 'clear'
+        puts "#{card_1} does not match #{card_2}"
+        sleep(3)
+        system 'clear'
+        puts "Next player"
+        sleep(3)
+    end
     def match?
         if card_1 == card_2
             system 'clear'
