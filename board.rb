@@ -144,7 +144,6 @@ class Board
                 else @temp_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].hide
             end
         end
-        render(@temp_grid)
         match? if @guessed.count == 2
         won? if positions(base_grid).count == @matched.count
     end
