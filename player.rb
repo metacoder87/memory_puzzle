@@ -16,3 +16,17 @@ class Player
         else @player = ComputerPlayer.new
         end
     end
+
+
+    def human_player_type?
+        system 'clear'
+        puts "Are you playing?"
+        puts "You can say: Yes (if you want to play) No (to watch me play)"
+        type = gets.chomp.to_s.downcase
+        system 'clear'
+        if type == "yes"
+            true
+        else false
+        end
+    end
+
