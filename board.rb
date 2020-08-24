@@ -137,6 +137,15 @@ class Board
         return @guessed
     end
 
+    def comp_card_feeder(pos)
+        puts @guessed.first
+        puts @guessed.count
+        if @guessed.count == 1
+            return card_1
+        else card_2
+        end
+    end
+
     def reveal
         positions(base_grid).each do |idx| 
                 if @guessed.include?([idx[0],idx[1]]) || @matched.include?([idx[0],idx[1]])
