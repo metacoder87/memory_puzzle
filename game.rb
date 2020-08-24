@@ -4,13 +4,14 @@
 
 
 require_relative "board"
-require_relative "human_player"
+require_relative "player"
 
 class Game
 
 attr_reader :board
-    def initialize(player)
-        @player = HumanPlayer.new(player)
+
+    def initialize
+        @player = Player.new
         @board = Board.new
         system 'clear'
         @board.build
@@ -22,12 +23,13 @@ attr_reader :board
             @board.render(@board.display_grid)
             @board.render(@board.temp_grid)
             @board.add_guess(@player.get_guess)
+            @board.reveal
         end
     end
 
 end
 
-game = Game.new("player_1")
+game = Game.new
 game.run
 
             # meta_coder (Gary Miller) =)

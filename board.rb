@@ -9,7 +9,7 @@ class Board
 
 
 
-    attr_reader :temp_grid, :display_grid
+    attr_reader :temp_grid, :display_grid, :guessed, :matched
     
     def initialize
         @display_grid = base_grid.dup
@@ -134,7 +134,7 @@ class Board
         else @guessed.clear
             @guessed << pos
         end
-        reveal
+        return @guessed
     end
 
     def reveal
