@@ -11,6 +11,13 @@ class ComputerPlayer
         @matched_cards = []
     end
 
+    def grid_spaces
+        grid = []
+        arr = [1,2,3,4]
+        arr.each { |num| arr.each { |n| grid << [num, n] } }
+        grid
+    end
+
     def get_guess(*positions)
         chosen =  guess
         puts "#{@player} chose #{chosen}."
