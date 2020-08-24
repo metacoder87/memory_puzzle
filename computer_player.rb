@@ -5,9 +5,11 @@
 
 class ComputerPlayer
 
+    attr_reader :player
+
     def initialize(player)
         @player = player
-        @known_cards = {}
+        @known_cards = Hash.new([])
         @matched_cards = []
     end
 
@@ -31,8 +33,8 @@ class ComputerPlayer
         @matched_cards[]
     end
 
-    def recieve_revealed_card
-
+    def recieve_revealed_card(card, location)
+        @known_cards[card] << location
     end
 
 end
