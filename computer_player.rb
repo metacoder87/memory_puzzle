@@ -23,6 +23,7 @@ class ComputerPlayer
     def get_guess(*positions)
         chosen =  guess
         puts "#{@player} chose #{chosen}."
+        return chosen
     end
 
     def guess
