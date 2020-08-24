@@ -5,6 +5,8 @@
 
 class HumanPlayer
 
+    attr_reader :player
+
     def initialize(player)
         @player = player
     end
@@ -13,6 +15,8 @@ class HumanPlayer
         puts "Take a guess..."
         move = gets.chomp.split(" ")
         move.map! { |ele| ele.to_i }
+        puts "#{@player} chose #{move}."
+        return move
     end
 
 end
