@@ -30,3 +30,14 @@ class Player
         end
     end
 
+    def get_player_name
+        system 'clear'
+        puts 'What should I call you?'
+        name = gets.chomp.split(" ")
+        name.map! { |ele| ele.to_s.capitalize }
+        name = name.join(" ")
+        system 'clear'
+        puts "Nice to meet you, #{name}."
+        sleep(2)
+        return name
+    end
