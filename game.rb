@@ -22,7 +22,11 @@ attr_reader :board
             system 'clear'
             @board.render(@board.display_grid)
             @board.render(@board.temp_grid)
-            @board.add_guess(@player.get_guess)
+            guess = @player.get_guess
+            puts guess
+            @board.add_guess(guess)
+            puts "#{guess} from game"
+            @player.recieve_revealed_card(@board.comp_card_feeder(guess), guess)
             @board.reveal
         end
     end
