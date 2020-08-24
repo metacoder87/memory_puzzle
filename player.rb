@@ -13,7 +13,7 @@ class Player
     def initialize
         if human_player_type? 
             @player = HumanPlayer.new(get_player_name)
-        else @player = ComputerPlayer.new
+        else @player = ComputerPlayer.new('computer')
         end
     end
 
@@ -44,6 +44,10 @@ class Player
 
     def get_guess
         @player.get_guess
+    end
+
+    def @player.receive_revealed_card(card, location)
+           @known_cards[card] << location
     end
 
 end
