@@ -3,13 +3,14 @@
             # https://github.com/metacoder87/memory_puzzle
 
 
-require_relative "board"
-           
 class ComputerPlayer
 
     def initialize(player)
         @player = player
-        @memo = {}
+        @known_cards = {}
+        @matched_cards = []
+    end
+
     end
 
 end
