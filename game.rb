@@ -20,14 +20,12 @@ attr_reader :board
     def run
         until @board.won? == true
             system 'clear'
-            @board.render(@board.display_grid)
             @board.render(@board.temp_grid)
+            @board.match? if @board.guessed.count == 2
+            return if @board.won? 
             guess = @player.get_guess
-            puts guess
             @board.add_guess(guess)
-            puts "#{guess} from game"
             @player.recieve_revealed_card(@board.comp_card_feeder(guess), guess)
-            @board.reveal
         end
     end
 

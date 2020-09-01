@@ -20,14 +20,10 @@ class Player
 
     def human_player_type?
         system 'clear'
-        puts "Are you playing?"
-        puts "You can say: Yes (if you want to play) No (to watch me play)"
+        puts "Do you want to play?"
         type = gets.chomp.to_s.downcase
         system 'clear'
-        if type == "yes"
-            true
-        else false
-        end
+        "yes, yas, yah, yepper, yup, yeah, i guess, if i have to".include?(type)
     end
 
     def get_player_name
@@ -37,8 +33,6 @@ class Player
         name.map! { |ele| ele.to_s.capitalize }
         name = name.join(" ")
         system 'clear'
-        puts "Nice to meet you, #{name}."
-        sleep(2)
         return name
     end
 
@@ -46,8 +40,8 @@ class Player
         @player.get_guess
     end
 
-    def @player.receive_revealed_card(card, location)
-           @known_cards[card] << location
+    def recieve_revealed_card(card, location)
+           @player.recieve_revealed_card(card, location)
     end
 
 end

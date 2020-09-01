@@ -16,7 +16,12 @@ class HumanPlayer
         move = gets.chomp.split(" ")
         move.map! { |ele| ele.to_i }
         puts "#{@player} chose #{move}."
+        sleep(2)
         return move
+    end
+
+    def recieve_revealed_card(card, location)
+        # walking like a duck
     end
 
 end

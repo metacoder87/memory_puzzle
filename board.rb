@@ -90,12 +90,13 @@ class Board
     end
 
     def not_a_match
-        system 'clear'
         puts "#{card_1} does not match #{card_2}"
-        sleep(3)
-        system 'clear'
         puts "Next guess"
         sleep(3)
+        system 'clear'
+        @guessed.clear
+        reveal
+        render(temp_grid)
     end
 
     def save_match
@@ -109,17 +110,17 @@ class Board
 
     def match?
         if card_1 == card_2
-            system 'clear'
             puts "It's a match"
             sleep(3)
             save_match && place(@grid) && place(@temp_grid)
+            system 'clear'
+            render(temp_grid)
         else not_a_match
         end
     end
 
     def won? 
         while @grid == @display_grid
-            system 'clear'
             puts "You WON! You must have a mind like a steel trap. Game Over." 
             sleep(5)
             system 'clear'
@@ -129,21 +130,18 @@ class Board
     end
 
     def add_guess(pos)
-        if @guessed.count <= 1
+        if @guessed.count == 2
+            @guessed.clear
             @guessed << pos
-        else @guessed.clear
-            @guessed << pos
+            reveal
+        else @guessed << pos
+            reveal
         end
         return @guessed
     end
 
     def comp_card_feeder(pos)
-        puts @guessed.first
-        puts @guessed.count
-        if @guessed.count == 1
-            return card_1
-        else card_2
-        end
+        @guessed.count == 1 ? card_1 : card_2
     end
 
     def reveal
@@ -153,15 +151,13 @@ class Board
                 else @temp_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].hide
             end
         end
-        match? if @guessed.count == 2
-        won? if positions(base_grid).count == @matched.count
     end
 
     def build
         populate
         populate_display
         render(@display_grid)
-        sleep(6)
+        sleep(5)
         system 'clear'
     end
 
