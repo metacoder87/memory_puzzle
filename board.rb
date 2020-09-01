@@ -91,7 +91,6 @@ class Board
 
     def not_a_match
         puts "#{card_1} does not match #{card_2}"
-        puts "Next guess"
         sleep(3)
         system 'clear'
         @guessed.clear
@@ -109,14 +108,14 @@ class Board
     end
 
     def match?
-        if card_1 == card_2
-            puts "It's a match"
-            sleep(3)
-            save_match && place(@grid) && place(@temp_grid)
-            system 'clear'
-            render(temp_grid)
-        else not_a_match
-        end
+        card_1 == card_2 ? match && render(temp_grid) : not_a_match
+    end
+
+    def match
+        puts "It's a match"
+        sleep(3)
+        save_match && place(@grid) && place(@temp_grid)
+        system 'clear'
     end
 
     def won? 
@@ -130,14 +129,9 @@ class Board
     end
 
     def add_guess(pos)
-        if @guessed.count == 2
-            @guessed.clear
-            @guessed << pos
-            reveal
-        else @guessed << pos
-            reveal
-        end
-        return @guessed
+        @guessed.count == 2 ? @guessed.clear && @guessed << pos : @guessed << pos
+        reveal
+        @guessed
     end
 
     def comp_card_feeder(pos)
@@ -145,12 +139,7 @@ class Board
     end
 
     def reveal
-        positions(base_grid).each do |idx| 
-                if @guessed.include?([idx[0],idx[1]]) || @matched.include?([idx[0],idx[1]])
-                        @temp_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].reveal
-                else @temp_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].hide
-            end
-        end
+        positions(base_grid).each { |idx| @guessed.include?([idx[0],idx[1]]) || @matched.include?([idx[0],idx[1]]) ? @temp_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].reveal : @temp_grid[idx[0]][idx[1]] = @card_ref[idx[0]][idx[1]].hide }
     end
 
     def build

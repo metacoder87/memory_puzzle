@@ -16,10 +16,7 @@ class ComputerPlayer
     end
 
     def grid_spaces
-        grid = []
-        arr = [1,2,3,4]
-        arr.each { |num| arr.each { |n| grid << [num, n] } }
-        grid
+        (1..4).map { |num| (1..4).map { |n| [num, n] } }.flatten(1)
     end
 
     def get_guess
@@ -46,14 +43,7 @@ class ComputerPlayer
     end
 
     def match_catch
-        known.select do |card, pos|
-            if known[card].count == 2
-                @matches << pos[0]
-                @matches << pos[1]
-                known.delete(card)
-            end
-        end
-        @matches
+        known.select { |card, pos| known[card].count == 2 ? @matches << pos[0] && @matches << pos[1] && known.delete(card) : @matches }
     end
 
     def recieve_revealed_card(card, location)
